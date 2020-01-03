@@ -1,0 +1,40 @@
+spring:  
+  datasource:
+    driverClassName: org.h2.Driver
+    password:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
+
+security:
+  jwt:
+    clientId: singha
+    clientSecret: singha123
+    resourceIds: SinghaOAuth
+    accessTokenValidititySeconds: 3600
+    refreshTokenValiditySeconds: 12800
+    authorizedGrantTypes: authorization_code,password,refresh_token
+    
+logging:
+  level:
+    root: WARN
+    com.singha: DEBUG
+    org.springframework: INFO
+    org.springframework.boot: INFO
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: ERROR
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: error
+    
